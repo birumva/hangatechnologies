@@ -1620,3 +1620,7 @@ body.nav-open { overflow: hidden; }
 .cookie__btn--solid { border-color: #2667FF; background: #2667FF; color: #fff; }
 .cookie__btn--solid:hover { border-color: #1F57D9; background: #1F57D9; }
 .cookie__btn--text { border-color: transparent; text-decoration: underline; text-underline-offset: 0.25em; }
+.case-intro__link { margin: 1.75rem 0 0; }
+.case-built__shot { display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: top; margin-bottom: 1.75rem; border: 1px solid #2A303B; border-radius: 14px; }
+.case-built__shot + .case-built__no { margin-bottom: 1rem; }
+.case-hero__img--low { object-position: center bottom; }
