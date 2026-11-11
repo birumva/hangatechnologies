@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 244 269" width="244" height="269" role="img" aria-label="Hanga Technologies logo mark">
+  <!-- Rounded hexagon in brand blue -->
+  <polygon points="122,16 224,74 224,195 122,253 20,195 20,74" fill="#2667FF" stroke="#2667FF" stroke-width="28" stroke-linejoin="round"/>
+  <!-- Offset "H" with swept outer corners -->
+  <path fill="#FFFFFF" d="M50 84 C50 66 66 56 92 48 L92 116 L152 116 L152 86 L194 86 L194 192 C194 210 178 220 152 228 L152 160 L92 160 L92 216 C66 208 50 198 50 180 Z"/>
+</svg>
