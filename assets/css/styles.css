@@ -1493,7 +1493,7 @@ body.nav-open { overflow: hidden; }
 .reads .work__more { margin-top: 3rem; }
 
 /* Contact card */
-.ready { padding-top: 0; }
+.ready { padding-top: clamp(5rem, 4rem + 4vw, 8rem); }
 .ready__card { display: grid; overflow: hidden; border-radius: 32px; background: #fff; box-shadow: 0 10px 40px rgba(20, 28, 36, 0.05); }
 @media (min-width: 900px) { .ready__card { grid-template-columns: 1.15fr 0.85fr; } }
 .ready__text { padding: clamp(2rem, 1.2rem + 3vw, 4.5rem); }

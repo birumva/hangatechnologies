@@ -11,7 +11,6 @@ services.html                       Services (anchors: #ai-native-software-deliv
                                     #digital-transformation)
 our-work.html                       Our Work: list of case studies (samples)
 case-*.html                         Single case study pages (samples)
-blog.html                           Blog index (placeholders until content is supplied)
 about.html                          About Hanga Technologies
 contact.html                        Contact (form + details + offices + FAQ)
 privacy-policy.html                 Privacy Policy, including the cookies section (#cookies)
