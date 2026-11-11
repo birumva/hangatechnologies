@@ -75,7 +75,7 @@
   }
 
   /* Header ink switches once the dark hero has scrolled away */
-  var stage = document.querySelector(".stage");
+  var stage = document.querySelector(".stage, .case-hero");
   if (stage) {
     var syncHeader = function () {
       document.body.classList.toggle("header-on-light", stage.getBoundingClientRect().bottom <= 72);
@@ -84,23 +84,123 @@
     window.addEventListener("scroll", syncHeader, { passive: true });
   }
 
-  var track = document.querySelector(".cases__track");
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* Case study carousel: the card nearest the centre is the active one */
+  var track = document.querySelector(".work__track");
   var prevCase = document.querySelector("[data-cases='prev']");
   var nextCase = document.querySelector("[data-cases='next']");
   if (track && prevCase && nextCase) {
-    var stepCase = function (dir) {
-      var card = track.querySelector(".case-slide");
-      var amount = card ? card.getBoundingClientRect().width + 20 : 360;
-      track.scrollBy({ left: dir * amount, behavior: reduceMotion ? "auto" : "smooth" });
+    var caseCards = Array.prototype.slice.call(track.querySelectorAll(".work-card"));
+    var activeCase = 0;
+
+    var nearestCase = function () {
+      var mid = track.getBoundingClientRect().left + track.clientWidth / 2;
+      var best = 0;
+      var bestGap = Infinity;
+      caseCards.forEach(function (card, i) {
+        var box = card.getBoundingClientRect();
+        var gap = Math.abs(box.left + box.width / 2 - mid);
+        if (gap < bestGap) { bestGap = gap; best = i; }
+      });
+      return best;
     };
-    prevCase.addEventListener("click", function () { stepCase(-1); });
-    nextCase.addEventListener("click", function () { stepCase(1); });
+
+    var syncCases = function () {
+      activeCase = nearestCase();
+      caseCards.forEach(function (card, i) { card.classList.toggle("is-active", i === activeCase); });
+      prevCase.disabled = activeCase === 0;
+      nextCase.disabled = activeCase === caseCards.length - 1;
+    };
+
+    var goToCase = function (i) {
+      var card = caseCards[Math.max(0, Math.min(caseCards.length - 1, i))];
+      var left = card.offsetLeft - (track.clientWidth - card.offsetWidth) / 2;
+      track.scrollTo({ left: left, behavior: reduceMotion ? "auto" : "smooth" });
+    };
+
+    var caseTick = null;
+    track.addEventListener("scroll", function () {
+      if (caseTick) return;
+      caseTick = window.requestAnimationFrame(function () { caseTick = null; syncCases(); });
+    }, { passive: true });
+    window.addEventListener("resize", syncCases);
+    prevCase.addEventListener("click", function () { goToCase(activeCase - 1); });
+    nextCase.addEventListener("click", function () { goToCase(activeCase + 1); });
+    syncCases();
+  }
+
+  /* ------------------------------------------------------------------
+     Cookie consent
+     The choice is kept in local storage. Analytics must only be loaded
+     when hasConsent("analytics") is true; listen for "hanga:consent"
+     to react when the visitor changes their choice.
+     ------------------------------------------------------------------ */
+  var CONSENT_KEY = "hanga-consent";
+  var CONSENT_MAX_AGE = 365 * 24 * 60 * 60 * 1000;
+  var cookieBanner = document.getElementById("cookie-banner");
+
+  function readConsent() {
+    try {
+      var saved = JSON.parse(localStorage.getItem(CONSENT_KEY));
+      if (saved && saved.date && Date.now() - new Date(saved.date).getTime() < CONSENT_MAX_AGE) return saved;
+    } catch (e) { /* storage unavailable or value unreadable */ }
+    return null;
+  }
+
+  window.hangaConsent = {
+    hasConsent: function (category) {
+      if (category === "essential") return true;
+      var saved = readConsent();
+      return !!(saved && saved[category]);
+    }
+  };
+
+  if (cookieBanner) {
+    var cookiePrefs = document.getElementById("cookie-prefs");
+    var cookieAnalytics = document.getElementById("cookie-analytics");
+    var cookieChoose = cookieBanner.querySelector("[data-cookie='choose']");
+    var cookieSave = cookieBanner.querySelector("[data-cookie='save']");
+
+    var showPrefs = function (show) {
+      cookiePrefs.hidden = !show;
+      cookieSave.hidden = !show;
+      cookieChoose.hidden = show;
+    };
+
+    var saveConsent = function (analytics) {
+      var choice = { essential: true, analytics: !!analytics, date: new Date().toISOString() };
+      try { localStorage.setItem(CONSENT_KEY, JSON.stringify(choice)); } catch (e) { /* storage unavailable */ }
+      cookieBanner.hidden = true;
+      document.dispatchEvent(new CustomEvent("hanga:consent", { detail: choice }));
+    };
+
+    cookieBanner.addEventListener("click", function (e) {
+      var btn = e.target.closest("[data-cookie]");
+      if (!btn) return;
+      var action = btn.getAttribute("data-cookie");
+      if (action === "accept") saveConsent(true);
+      else if (action === "reject") saveConsent(false);
+      else if (action === "save") saveConsent(cookieAnalytics.checked);
+      else if (action === "choose") showPrefs(true);
+    });
+    cookiePrefs.addEventListener("submit", function (e) { e.preventDefault(); saveConsent(cookieAnalytics.checked); });
+
+    document.querySelectorAll("[data-cookie-open]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        cookieAnalytics.checked = window.hangaConsent.hasConsent("analytics");
+        showPrefs(true);
+        cookieBanner.hidden = false;
+        cookieAnalytics.focus();
+      });
+    });
+
+    if (!readConsent()) cookieBanner.hidden = false;
   }
 
   /* ------------------------------------------------------------------
      Scroll reveal (subtle, respects reduced motion)
      ------------------------------------------------------------------ */
-  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var revealEls = document.querySelectorAll(".reveal");
 
   if (reduceMotion || !("IntersectionObserver" in window)) {

@@ -14,8 +14,8 @@
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&display=swap">
-  <link rel="stylesheet" href="assets/css/styles.css?v=9">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300..900&family=Geist+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="assets/css/styles.css?v=12">
   <script src="assets/js/theme-init.js"></script>
 </head>
 <body class="">
@@ -37,24 +37,25 @@
   <nav class="menu" id="mobile-nav" aria-label="Primary" hidden>
     <div class="menu__grid">
       <div>
-        <p class="menu__label">Find your way</p>
+        <p class="menu__label">Discover pages</p>
         <ul>
           <li><a href="index.html">Home</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="portfolio.html">Our work</a></li>
-          <li><a href="approach.html">How we deliver</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="services.html">Our Services</a></li>
+          <li><a href="about.html">About Hanga Technologies</a></li>
+          <li><a href="our-work.html">Our Work</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
         </ul>
       </div>
       <div>
         <p class="menu__label">What you can hire us for</p>
         <ul class="menu__sub">
-          <li><a href="ai-solutions.html">AI solutions and supervised workflows</a></li>
-          <li><a href="website-development.html" aria-current="page">Websites and portals</a></li>
-          <li><a href="services.html#systems-integration">Systems integration</a></li>
-          <li><a href="services.html#web-applications">Custom software</a></li>
-          <li><a href="industries.html">Industries we work with</a></li>
+          <li><a href="services.html#ai-native-software-delivery">AI Native Software Delivery</a></li>
+          <li><a href="services.html#platform-modernisation">Platform Modernisation</a></li>
+          <li><a href="services.html#ai-data-engineering">AI &amp; Data Engineering</a></li>
+          <li><a href="services.html#product-design">Product Design</a></li>
+          <li><a href="services.html#cloud-migration">Cloud Migration</a></li>
+          <li><a href="services.html#digital-transformation">Digital Transformation</a></li>
         </ul>
         <a class="pill pill--solid" href="contact.html">Start a project</a>
         <button class="theme-toggle menu__theme" type="button" aria-label="Switch to dark mode">
@@ -74,7 +75,7 @@
         <p class="lede">We design and build websites that organisations can rely on: clear for visitors, straightforward for editors, accessible by default, and structured for multilingual audiences. The same care applies whether the site is a company presence, a public service portal, or an internal tool.</p>
         <div class="btn-group">
           <a class="btn btn-primary" href="contact.html">Discuss a website project</a>
-          <a class="btn btn-secondary" href="portfolio.html#institutional-website">See a website case study</a>
+          <a class="btn btn-secondary" href="case-citizen-services-portal.html">See a sample case study</a>
         </div>
       </div>
     </section>
@@ -184,61 +185,75 @@
 
   <footer class="site-footer">
     <div class="container">
+      <div class="footer-top">
+        <a class="brand" href="index.html" aria-label="Hanga Technologies Ltd — home">
+          <svg class="brand__mark" viewBox="0 0 244 269" aria-hidden="true" focusable="false">
+            <polygon points="122,16 224,74 224,195 122,253 20,195 20,74" fill="#2667FF" stroke="#2667FF" stroke-width="28" stroke-linejoin="round"/>
+            <path fill="#FFFFFF" d="M50 84 C50 66 66 56 92 48 L92 116 L152 116 L152 86 L194 86 L194 192 C194 210 178 220 152 228 L152 160 L92 160 L92 216 C66 208 50 198 50 180 Z"/>
+          </svg>
+        </a>
+        <ul class="footer-places">
+          <li><a href="contact.html#offices">Rwanda (HQ)</a></li>
+          <li><a href="contact.html#offices">Germany</a></li>
+        </ul>
+      </div>
       <div class="footer-grid">
-        <div class="footer-brand">
-          <a class="brand" href="index.html" aria-label="Hanga Technologies Ltd — home">
-            <svg class="brand__mark" viewBox="0 0 244 269" aria-hidden="true" focusable="false">
-              <polygon points="122,16 224,74 224,195 122,253 20,195 20,74" fill="#2667FF" stroke="#2667FF" stroke-width="28" stroke-linejoin="round"/>
-              <path fill="#FFFFFF" d="M50 84 C50 66 66 56 92 48 L92 116 L152 116 L152 86 L194 86 L194 192 C194 210 178 220 152 228 L152 160 L92 160 L92 216 C66 208 50 198 50 180 Z"/>
-            </svg>
-            <span class="brand__name">Hanga Technologies Ltd</span>
-          </a>
-          <p>AI solutions, software, and digital systems for organisations that need dependable delivery.</p>
-          <address>
-            Kigali, Rwanda<br>
-            <a href="mailto:info@hangatechnologies.rw">info@hangatechnologies.rw</a>
-          </address>
-        </div>
         <div>
           <h4>Services</h4>
           <ul>
-            <li><a href="ai-solutions.html">AI Solutions &amp; Automation</a></li>
-            <li><a href="services.html#agentic-workflows">Agentic Workflow Design</a></li>
-            <li><a href="website-development.html">Website Development</a></li>
-            <li><a href="services.html#web-applications">Custom Web Applications</a></li>
-            <li><a href="services.html#systems-integration">Systems Integration</a></li>
-            <li><a href="services.html#discovery">Discovery &amp; Architecture</a></li>
+            <li><a href="services.html#ai-native-software-delivery">AI Native Software Delivery</a></li>
+            <li><a href="services.html#platform-modernisation">Platform Modernisation</a></li>
+            <li><a href="services.html#ai-data-engineering">AI &amp; Data Engineering</a></li>
+            <li><a href="services.html#product-design">Product Design</a></li>
+            <li><a href="services.html#cloud-migration">Cloud Migration</a></li>
+            <li><a href="services.html#digital-transformation">Digital Transformation</a></li>
           </ul>
         </div>
         <div>
           <h4>Company</h4>
           <ul>
-            <li><a href="about.html">About</a></li>
-            <li><a href="approach.html">Approach</a></li>
-            <li><a href="industries.html">Industries</a></li>
-            <li><a href="portfolio.html">Selected work</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="about.html">About Hanga Technologies</a></li>
+            <li><a href="our-work.html">Our Work</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
           </ul>
         </div>
         <div>
-          <h4>Legal</h4>
+          <h4>Get in touch</h4>
           <ul>
-            <li><a href="privacy-policy.html">Privacy Policy</a></li>
-            <li><a href="terms-of-use.html">Terms of Use</a></li>
-            <li><a href="cookie-notice.html">Cookie Notice</a></li>
-            <li><a href="legal-notice.html">Legal Notice</a></li>
-            <li><a href="data-protection-responsible-ai.html">Data Protection &amp; Responsible AI</a></li>
-            <li><a href="accessibility-statement.html">Accessibility Statement</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="mailto:info@hangatechnologies.rw">info@hangatechnologies.rw</a></li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
-        <span>&copy; <span data-year>2026</span> Hanga Technologies Ltd. A company registered in Rwanda.</span>
-        <span><a href="legal-notice.html">Company information</a> &middot; <a href="accessibility-statement.html">Accessibility</a></span>
+        <span>Copyright &copy; <span data-year>2026</span> Hanga Technologies Ltd</span>
+        <button class="footer-cookie" type="button" data-cookie-open>Cookie settings</button>
       </div>
     </div>
   </footer>
 
-  <script src="assets/js/main.js?v=4" defer></script>
+  <div class="cookie" id="cookie-banner" role="dialog" aria-modal="false" aria-labelledby="cookie-title" hidden>
+    <p class="cookie__title" id="cookie-title">Cookies and data collection</p>
+    <p class="cookie__text">We store a small amount of information on your device. Essential storage keeps the site working and remembers this choice. Analytics are optional and stay off unless you allow them. See our <a href="privacy-policy.html#cookies">Privacy Policy</a>.</p>
+    <form class="cookie__prefs" id="cookie-prefs" hidden>
+      <label class="cookie__row">
+        <input type="checkbox" checked disabled>
+        <span><strong>Essential</strong> Needed for the site to work, including your cookie choice and light or dark appearance.</span>
+      </label>
+      <label class="cookie__row">
+        <input type="checkbox" name="analytics" id="cookie-analytics">
+        <span><strong>Analytics</strong> Anonymous usage statistics that help us improve the site.</span>
+      </label>
+    </form>
+    <div class="cookie__actions">
+      <button type="button" class="cookie__btn cookie__btn--solid" data-cookie="accept">Accept all</button>
+      <button type="button" class="cookie__btn" data-cookie="reject">Essential only</button>
+      <button type="button" class="cookie__btn cookie__btn--text" data-cookie="choose">Choose</button>
+      <button type="button" class="cookie__btn cookie__btn--solid" data-cookie="save" hidden>Save choices</button>
+    </div>
+  </div>
+
+  <script src="assets/js/main.js?v=12" defer></script>
 </body>
 </html>
