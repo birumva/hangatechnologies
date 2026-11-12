@@ -1526,7 +1526,8 @@ body.nav-open { overflow: hidden; }
 .case-intro__grid { display: grid; gap: 3rem; }
 @media (min-width: 900px) { .case-intro__grid { grid-template-columns: 1.3fr 0.7fr; gap: 5rem; } }
 .case-intro__lede { margin: 0; color: #4A4F5A; font-size: clamp(1.35rem, 1.1rem + 0.9vw, 1.85rem); font-weight: 300; letter-spacing: -0.02em; line-height: 1.4; }
-.case-facts { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin: 0; align-content: start; }
+.case-facts { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem 2rem; margin: 0; align-content: start; }
+.case-facts > div { min-width: 0; }
 .case-facts dt { margin: 0 0 0.4rem; color: #5c6570; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; }
 .case-facts dd { margin: 0; color: #15171C; font-weight: 600; }
 .case-stats { display: grid; grid-template-columns: 1fr 1fr; list-style: none; margin: 3.5rem 0 0; padding: 1rem 0; border-radius: 24px; background: #fff; box-shadow: 0 10px 40px rgba(20, 28, 36, 0.05); }

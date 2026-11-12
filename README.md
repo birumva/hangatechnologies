@@ -9,8 +9,8 @@ index.html                          Home
 services.html                       Services (anchors: #ai-native-software-delivery, #platform-modernisation,
                                     #ai-data-engineering, #product-design, #cloud-migration,
                                     #digital-transformation)
-our-work.html                       Our Work: list of case studies (samples)
-case-*.html                         Single case study pages (samples)
+our-work.html                       Our Work: list of case studies
+case-*.html                         Single case study pages
 about.html                          About Hanga Technologies
 contact.html                        Contact (form + details + offices + FAQ)
 privacy-policy.html                 Privacy Policy, including the cookies section (#cookies)
@@ -39,7 +39,7 @@ python3 -m http.server 8000
 - **Colours, type, spacing** are CSS custom properties at the top of `assets/css/styles.css`. The accent is the logo blue (`#2667FF`); dark mode uses a lighter variant for contrast.
 - **Contact form:** set `CONTACT_FORM_ENDPOINT` in `assets/js/main.js` to an endpoint that accepts a JSON POST. Until it is set, the form shows the direct email address instead of pretending to send.
 - **Placeholders:** anything wrapped in `<span class="placeholder">[...]</span>` must be completed before publishing. This covers registration numbers, addresses, phone numbers, email addresses, dates, and names. Search the project for `class="placeholder"`.
-- **Case studies** (`our-work.html`, `case-*.html`, and the homepage carousel) are samples and are labelled as such. Replace with real engagements as references become available.
+- **Case studies** live in `our-work.html`, `case-*.html`, and the homepage carousel. Evidence for some engagements is available on request.
 - **Cookie consent:** the banner stores the visitor's choice in local storage under `hanga-consent`. No analytics tool is installed. Before adding one, load it only when `window.hangaConsent.hasConsent("analytics")` is true, listen for the `hanga:consent` event, and complete the analytics placeholder in `privacy-policy.html#cookies`.
 - **The Privacy Policy** is a starter draft and should be reviewed by a qualified legal adviser in Rwanda before publication.
 
